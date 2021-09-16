@@ -1,0 +1,6 @@
+﻿  mymove.c
+C:\Mo\2021-2학기\컴퓨터망\과제1\mymove\mymove\mymove.c(16,11): warning C4013: 'open'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Mo\2021-2학기\컴퓨터망\과제1\mymove\mymove\mymove.c(26,21): warning C4013: 'read'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Mo\2021-2학기\컴퓨터망\과제1\mymove\mymove\mymove.c(27,8): warning C4013: 'write'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Mo\2021-2학기\컴퓨터망\과제1\mymove\mymove\mymove.c(34,7): warning C4013: 'close'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  mymove.vcxproj -> C:\Mo\2021-2학기\컴퓨터망\과제1\mymove\Debug\mymove.exe
