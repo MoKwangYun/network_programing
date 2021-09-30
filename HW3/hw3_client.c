@@ -1,4 +1,4 @@
-//2017112823 ����
+//2017112823 ¸ð±¤À±
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -44,23 +44,23 @@ int main(int argc, char* argv[]){
 	
 	char filename[BUF_SIZE];
 	printf("Input file name: ");
-	scanf("%s",filename);
+	scanf("%s",filename);//server로부터 데이터를 읽어올 파일 이름 
 	
 	printf("[Client] request %s\n\n", filename);
-	write(sock, &filename, BUF_SIZE);
+	write(sock, filename, BUF_SIZE);//파일 이름 server로 전송
 	
 	int result_len;
 	char result[BUF_SIZE];
-	result_len = read(sock, result, sizeof(result));
+	result_len = read(sock, result, sizeof(result));//전송한 파일 이름과 동일한 파일이 server가 있는 디렉토리에 있는지 여부 수신함
 	if(result_len == -1)
 		error_handling("read() error");
 	
-	if(strcmp(result, "File Not Found") == 0){
+	if(strcmp(result, "File Not Found") == 0){//만약 파일이 없는 경우 종료
 		printf("%s \n", result);
 		exit(1);
 	}
 	
-	fd = open(filename, O_CREAT | O_RDWR, 0644);
+	fd = open(filename, O_CREAT | O_RDWR, 0644);//파일이 있을 경우 server에서 읽은 데이터를 저장할 파일 open (O_CREAT == 파일 없을 경우 생성)
 	if(fd == -1)
 		error_handling("open() error");
 	
@@ -78,7 +78,7 @@ int main(int argc, char* argv[]){
 		if(result_len == -1)
 			error_handling("read() error");
 		
-		write(fd, packet.buf, packet.buf_len);
+		write(fd, packet.buf, packet.buf_len);//생성한 파일에 읽어온 데이터 저자
 		
 		printf("[Client] Rx SEQ: %d, len: %d bytes\n", packet.seq, packet.buf_len);
 		
